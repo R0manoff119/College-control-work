@@ -1,35 +1,49 @@
-let numbers = [1, 4, 6, 8, 10];
+// 1. Создать два массива и объединить их
 
-let ref = numbers.map(number => number * 3);
-console.log(ref);
+let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
 
-let numbers2 = [3, 8, 12, 5, 17, 20, 4];
+let result = [...arr1, ...arr2];
 
-let bigNumber = numbers2.filter(number => number > 10);
-console.log(bigNumber);
+console.log(result);
 
-let numbers3 = [10, 20, 30, 40, 50];
 
-let sum = numbers3.reduce((total, number) => total + number, 0);
-console.log(sum);
+// 2. Деструктуризация объекта студента
 
-let average = sum / numbers3.length;
-console.log(average);
+let student2 = {
+    name: "Жорик брат",
+    age: 20,
+    group: "РК 26-1",
+    grades: [4, 5, 3, 5, 2, 2, 2, 2, 2, 2, 2]
+};
 
-let students = [
-    {name: "Анна", age: 18, grades: 4},
-    {name: "Иван", age: 18, grades: 5},
-    {name: "Ричард", age: 19, grades: 3}
-];
+let { name, age, group, grades } = student2;
 
-let names = students.map(student => student.name);
-console.log(names);
+console.log(name);
+console.log(age);
+console.log(group);
+console.log(grades);
 
-let topStudent = students.filter(student => student.grades === 5);
-console.log(topStudent);
 
-let sumGrades = students.reduce((sum, student) => sum + student.grades, 0);
-console.log(sumGrades);
+// 3. Создать нового студента на основе существующего
 
-let ivan = students.find(student => student.name === "Иван");
-console.log(ivan);
+let newStudent = {
+    ...student2
+};
+
+console.log(newStudent);
+
+
+// 4. Функция подсчёта среднего значения
+
+function average(...numbers) {
+    let sum = 0;
+
+    for (let number of numbers) {
+        sum += number;
+    }
+
+    return sum / numbers.length;
+}
+
+console.log(average(4, 5, 3, 5, 2));
