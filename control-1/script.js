@@ -1,20 +1,11 @@
-let students = [
-    { name: "Иван", grades: [5, 4, 5, 5] },
-    { name: "Петр", grades: [4, 4, 5, 3] },
-    { name: "Анна", grades: [5, 5, 5, 4] }
-];
+let numbers = [7, 3, 9, 1, 5];
 
-let names = students.map(student => student.name);
+let a = [...numbers].sort((x, y) => x - y);
+console.log(a);
 
-function average(grades) {
-    return grades.reduce((sum, grade) => sum + grade, 0) / grades.length;
-}
+let b = [...numbers].sort((x, y) => y - x);
+console.log(b);
 
-function studentAverage(student) {
-    return average(student.grades);
-}
+console.log(Math.min(...numbers));
 
-let goodStudents = students.filter(student => studentAverage(student) >= 4.5);
-
-console.log(names);
-console.log(goodStudents);
+console.log(Math.max(...numbers));
