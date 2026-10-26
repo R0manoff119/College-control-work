@@ -1,94 +1,86 @@
+const a = "   javascript — это язык программирования, который широко используется в веб-разработке. JAVASCRIPT позволяет создавать интерактивные веб-страницы, а также серверные приложения и игры. Многие разработчики начинают свой путь именно с javascript, потому что он относительно прост в освоении и имеет огромное сообщество.   javascript поддерживается всеми современными браузерами, и это делает его универсальным инструментом для создания сайтов. Однако, JAVASCRIPT имеет свои особенности: например, динамическую типизацию, асинхронность и событийную модель. Эти особенности могут показаться сложными новичкам, но именно они дают языку гибкость.   Изучая javascript, важно практиковаться каждый день и писать как можно больше кода. Javascript-код можно запускать прямо в консоли браузера, не устанавливая ничего дополнительно. Многие компании используют javascript для создания интерфейсов, работы с данными и построения серверной логики. Существует множество библиотек и фреймворков, которые расширяют возможности javascript. Новичкам стоит начать с основ: переменные, функции, массивы и объекты.   javascript постоянно развивается: каждый год выходят новые версии стандарта и добавляются новые возможности. Сообщество javascript активно обсуждает предложения и улучшения языка. Если вы хотите стать востребованным специалистом, javascript — отличный выбор для старта. В заключение: javascript — это мощный, гибкий и востребованный язык, который стоит освоить каждому, кто хочет работать в современной веб-разработке.   ";
 
-const text = `   javascript — это язык программирования, который широко используется в веб-разработке. JAVASCRIPT позволяет создавать интерактивные веб-страницы, а также серверные приложения и игры. Многие разработчики начинают свой путь именно с javascript, потому что он относительно прост в освоении и имеет огромное сообщество.   javascript поддерживается всеми современными браузерами, и это делает его универсальным инструментом для создания сайтов. Однако, JAVASCRIPT имеет свои особенности: например, динамическую типизацию, асинхронность и событийную модель. Эти особенности могут показаться сложными новичкам, но именно они дают языку гибкость.   Изучая javascript, важно практиковаться каждый день и писать как можно больше кода. Javascript-код можно запускать прямо в консоли браузера, не устанавливая ничего дополнительно. Многие компании используют javascript для создания интерфейсов, работы с данными и построения серверной логики. Существует множество библиотек и фреймворков, которые расширяют возможности javascript. Новичкам стоит начать с основ: переменные, функции, массивы и объекты.   javascript постоянно развивается: каждый год выходят новые версии стандарта и добавляются новые возможности. Сообщество javascript активно обсуждает предложения и улучшения языка. Если вы хотите стать востребованным специалистом, javascript — отличный выбор для старта. В заключение: javascript — это мощный, гибкий и востребованный язык, который стоит освоить каждому, кто хочет работать в современной веб-разработке.`;
-
-let result = "";
-let space = false;
-
-for (let i = 0; i < text.length; i++) {
-    let letter = text[i];
-
-    if (letter == " " || letter == "\n") {
-        if (result.length > 0 && space == false) {
-            result += " ";
-            space = true;
-        }
-    } else {
-        result += letter.toLowerCase();
-        space = false;
+let b = "";
+let c = false;
+for (let d = 0; d < a.length; d++) {
+  let e = a[d];
+  if (e === " ") {
+    if (!c) {
+      b = b + e;
     }
+    c = true;
+  } else {
+    b = b + e;
+    c = false;
+  }
+}
+b = b.trim();
+
+b = b.toLowerCase();
+
+let f = "";
+let g = 0;
+while (g < b.length) {
+  let h = b.substr(g, 10);
+  if (h === "javascript") {
+    f = f + "JavaScript";
+    g = g + 10;
+  } else {
+    f = f + b[g];
+    g = g + 1;
+  }
+}
+b = f;
+
+let i = "";
+for (let j = 0; j < b.length; j++) {
+  if (b[j] === "-") {
+    i = i + " ";
+  } else {
+    i = i + b[j];
+  }
+}
+b = i;
+
+let k = b.split(".");
+
+let l = [];
+for (let m = 0; m < k.length; m++) {
+  let n = k[m].trim();
+  if (n.length > 0) {
+    let o = n[0].toUpperCase();
+    let p = n.substr(1);
+    l.push(o + p);
+  }
 }
 
-let newText = "";
-
-for (let i = 0; i < result.length; i++) {
-    if (result[i] == "j" &&
-        result[i + 1] == "a" &&
-        result[i + 2] == "v" &&
-        result[i + 3] == "a" &&
-        result[i + 4] == "s" &&
-        result[i + 5] == "c" &&
-        result[i + 6] == "r" &&
-        result[i + 7] == "i" &&
-        result[i + 8] == "p" &&
-        result[i + 9] == "t") {
-        newText += "JavaScript";
-        i += 9;
-    } else if (result[i] == "-" || result[i] == "—") {
-        newText += " ";
-    } else {
-        newText += result[i];
-    }
+let q = "";
+for (let r = 0; r < l.length; r++) {
+  q = q + l[r];
+  if (r < l.length - 1) {
+    q = q + ". ";
+  }
 }
+q = q + ".";
 
-result = newText;
-
-let sentences = [""];
-let number = 0;
-
-for (let i = 0; i < result.length; i++) {
-    if (result[i] == ".") {
-        number++;
-        sentences[number] = "";
-    } else {
-        sentences[number] += result[i];
-    }
+let s = "";
+let t = 0;
+while (t < q.length) {
+  let u = q.substr(t, 6);
+  if (u === "мощный") {
+    s = s + "универсальный";
+    t = t + 6;
+  } else {
+    s = s + q[t];
+    t = t + 1;
+  }
 }
+q = s;
 
-result = "";
+let v = q.substr(0, 10) === "JavaScript";
+let w = q[q.length - 1] === ".";
 
-for (let i = 0; i < sentences.length; i++) {
-    let sentence = sentences[i];
-    let first = true;
-
-    for (let j = 0; j < sentence.length; j++) {
-        if (sentence[j] != " " || first == false) {
-            if (first == true && sentence[j] >= "a" && sentence[j] <= "z") {
-                result += sentence[j].toUpperCase();
-            } else {
-                result += sentence[j];
-            }
-            first = false;
-        }
-    }
-
-    if (i < sentences.length - 1) {
-        result += ". ";
-    }
-}
-
-result = result.replace("мощный", "универсальный");
-
-console.log(result[0] == "J" &&
-    result[1] == "a" &&
-    result[2] == "v" &&
-    result[3] == "a" &&
-    result[4] == "S" &&
-    result[5] == "c" &&
-    result[6] == "r" &&
-    result[7] == "i" &&
-    result[8] == "p" &&
-    result[9] == "t");
-
-console.log(result[result.length - 1] == ".");
-console.log(result);
-
+console.log("Итоговый текст:");
+console.log(q);
+console.log("Начинается с JavaScript:", v);
+console.log("Заканчивается точкой:", w);
