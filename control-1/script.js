@@ -1,13 +1,12 @@
-const now = new Date();
+const data1 = new Date("2026-10-27");
+
+const data2 = new Date("2026-10-20");
 
 
+if (data1 > data2)(
 
-const day = String(now.getDate()).padStart(2, "0");
+console.log("NpaBAa")
 
-const month = String(now.getMonth()+1).padStart(2, "0");
+else{
 
-const year = now.getFullYear();
-
-
-
-console.log('${day}.${month}.${year});
+console.log("Mox")
