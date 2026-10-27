@@ -1,15 +1,14 @@
-let date = new Date();
+let birthday = new Date("2009-05-19");
+let today = new Date();
 
-let days = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
+let age = today.getFullYear() - birthday.getFullYear();
 
-console.log(date.toLocaleDateString("ru-RU"));
-console.log(days[date.getDay()]);
+if (today.getMonth() < birthday.getMonth()) {
+    age--;
+} else if (today.getMonth() == birthday.getMonth()) {
+    if (today.getDate() < birthday.getDate()) {
+        age--;
+    }
+}
 
-
-
-let date = new Date();
-
-let days = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
-
-console.log(date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear());
-console.log(days[(date.getDay() + 6) % 7]);
+console.log(age);
