@@ -1,12 +1,6 @@
-const data1 = new Date("2026-10-27");
+let date = new Date();
 
-const data2 = new Date("2026-10-20");
+let days = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
 
-
-if (data1 > data2)(
-
-console.log("NpaBAa")
-
-else{
-
-console.log("Mox")
+console.log(date.toLocaleDateString("ru-RU"));
+console.log(days[date.getDay()]);
