@@ -1,17 +1,15 @@
-1 CREATE TABLE sales
+PRIMARY KEY (id),
 
-2 id int unsigned NOT NULL AUTO_INCREMENT,
+FOREIGN KEY (id_fuel) REFERENCES fuels (id),
 
-id fuel int unsigned NOT NULL,
+10 FOREIGN KEY
 
-4 id_station int unsigned NOT NULL,
+(id_client) REFERENCES clients
 
-5 id_client int unsigned NOT NULL,
+(id station
 
-6 date date NOT NULL,
+REFERENCES
 
-7 amount int unsigned NOT NULL,
+FOREIGN KEY
 
-8 PRIMARY KEY (id
-
-10;
+12);
