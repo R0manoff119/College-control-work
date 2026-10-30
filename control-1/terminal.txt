@@ -1,23 +1,11 @@
-CREATE TABLE fuels (
+1 CREATE TABLE firms
 
-2
+2 `id int unsigned NOT NULL AUTO_INCREMENT,
 
-3
+3 name varchar (100) NOT NULL,
 
-4
+4 address varchar (255) NOT NULL,
 
-5
+5 telephone varchar(16) NOT NULL,
 
-6
-
-id int unsigned NOT NULL AUTO_INCREMENT,
-
-type enum('AM-92','AM-95', 'AM-98') NOT NULL,
-
-amount int unsigned NOT NULL,
-
-price' decimal(5,2) NOT NULL,
-
-PRIMARY KEY (id
-
-7)
+6 PRIMARY KEY (id)
