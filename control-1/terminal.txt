@@ -1,15 +1,17 @@
-PRIMARY KEY (id),
+CREATE TABLE clients (
 
-FOREIGN KEY (id_fuel) REFERENCES fuels (id),
+2 id int unsigned NOT NULL AUTO_INCREMENT,
 
-10 FOREIGN KEY
+3 surname varchar (64) NOT NULL,
 
-(id_client) REFERENCES clients
+4 name varchar (64) NOT NULL,
 
-(id station
+5 patronymic varchar (64) NOT NULL,
 
-REFERENCES
+6 address varchar (255) NOT NULL,
 
-FOREIGN KEY
+7 telephone varchar (16) NOT NULL,
 
-12);
+8 PRIMARY KEY (id)
+
+9);
