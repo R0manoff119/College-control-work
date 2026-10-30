@@ -1,11 +1,19 @@
-1 CREATE TABLE firms
+1 CREATE TABLE stations
 
-2 `id int unsigned NOT NULL AUTO_INCREMENT,
+2 id int unsigned NOT NULL AUTO_INCREMENT,
 
-3 name varchar (100) NOT NULL,
+3 id firma int unsigned NOT NULL,
 
 4 address varchar (255) NOT NULL,
 
-5 telephone varchar(16) NOT NULL,
+PRIMARY KEY (id),
 
-6 PRIMARY KEY (id)
+6 FOREIGN KEY
+
+(id_firma)
+
+REFERENCES
+
+firms
+
+Р
