@@ -1,1 +1,23 @@
+CREATE TABLE fuels (
 
+2
+
+3
+
+4
+
+5
+
+6
+
+id int unsigned NOT NULL AUTO_INCREMENT,
+
+type enum('AM-92','AM-95', 'AM-98') NOT NULL,
+
+amount int unsigned NOT NULL,
+
+price' decimal(5,2) NOT NULL,
+
+PRIMARY KEY (id
+
+7)
