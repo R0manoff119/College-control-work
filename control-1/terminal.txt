@@ -1,17 +1,23 @@
-CREATE TABLE clients (
+CREATE TABLE fuel_firm
 
-2 id int unsigned NOT NULL AUTO_INCREMENT,
+2 id firm int unsigned NOT NULL,
 
-3 surname varchar (64) NOT NULL,
+id fuel int unsigned NOT NULL,
 
-4 name varchar (64) NOT NULL,
+4 PRIMARY KEY (id_firm, id_fuel),
 
-5 patronymic varchar (64) NOT NULL,
+('id_firm)
 
-6 address varchar (255) NOT NULL,
+REFERENCES
 
-7 telephone varchar (16) NOT NULL,
+REFERENCES
 
-8 PRIMARY KEY (id)
+firms'(id),
 
-9);
+fuels (id')
+
+5 FOREIGN KEY
+
+6 FOREIGN KEY id fuel
+
+7);
