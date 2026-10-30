@@ -1,19 +1,17 @@
-1 CREATE TABLE stations
+1 CREATE TABLE sales
 
 2 id int unsigned NOT NULL AUTO_INCREMENT,
 
-3 id firma int unsigned NOT NULL,
+id fuel int unsigned NOT NULL,
 
-4 address varchar (255) NOT NULL,
+4 id_station int unsigned NOT NULL,
 
-PRIMARY KEY (id),
+5 id_client int unsigned NOT NULL,
 
-6 FOREIGN KEY
+6 date date NOT NULL,
 
-(id_firma)
+7 amount int unsigned NOT NULL,
 
-REFERENCES
+8 PRIMARY KEY (id
 
-firms
-
-Р
+10;
