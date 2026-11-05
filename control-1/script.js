@@ -1,33 +1,33 @@
+```javascript
+let a = 1;
 
-let number = 1;
+let b = setInterval(function() {
+    console.log(a);
 
-let timer = setInterval(function() {
-    console.log(number);
-
-    if (number == 25) {
-        clearInterval(timer);
-        console.log("Счёт завершён");
+    if (a == 25) {
+        clearInterval(b);
+        console.log("Готово");
     }
 
-    number++;
+    a++;
 }, 1000);
 
-let number2 = 25;
+let c = 25;
 
-let timer2 = setInterval(function() {
-    console.log(number2);
+let d = setInterval(function() {
+    console.log(c);
 
-    if (number2 == 1) {
-        clearInterval(timer2);
-        console.log("Отсчёт завершён");
+    if (c == 1) {
+        clearInterval(d);
+        console.log("Готово");
     }
 
-    number2--;
+    c--;
 }, 1000);
 
-let count = 0;
+let e = 0;
 
-function trafficLight() {
+function f() {
     console.log("Красный");
 
     setTimeout(function() {
@@ -36,12 +36,12 @@ function trafficLight() {
         setTimeout(function() {
             console.log("Зелёный");
 
-            count++;
+            e++;
 
-            if (count < 2) {
-                setTimeout(trafficLight, 3000);
+            if (e < 2) {
+                setTimeout(f, 3000);
             } else {
-                console.log("Работа светофора завершена");
+                console.log("Готово");
             }
 
         }, 2000);
@@ -49,24 +49,24 @@ function trafficLight() {
     }, 3000);
 }
 
-trafficLight();
+f();
 
-let time = 15;
+let g = 15;
 
-let timer3 = setInterval(function() {
-    console.log(time);
+let h = setInterval(function() {
+    console.log(g);
 
-    time--;
+    g--;
 
-    if (time < 0) {
-        clearInterval(timer3);
+    if (g < 0) {
+        clearInterval(h);
         console.log("Время вышло!");
     }
 }, 1000);
 
-let reminderTime = prompt("Через сколько секунд напомнить?");
+let i = prompt("Через сколько секунд напомнить?");
 
 setTimeout(function() {
     console.log("Напоминание!");
-}, reminderTime * 1000);
+}, i * 1000);
 ```
