@@ -1,34 +1,52 @@
-CREATE TABLE Departments (
+CREATE TABLE Objects (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(150) NOT NULL
+    name VARCHAR(150) NOT NULL,
+    address VARCHAR(200),
+    object_type VARCHAR(100),
+    site_id INT NOT NULL,
+    FOREIGN KEY (site_id) REFERENCES Sites(id)
+);
+
+CREATE TABLE Contracts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    contract_number VARCHAR(50) NOT NULL,
+    contract_date DATE,
+    customer_id INT NOT NULL,
+    object_id INT NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES Customers(id),
+    FOREIGN KEY (object_id) REFERENCES Objects(id)
 );
 
 
-CREATE TABLE Sites (
+CREATE TABLE Equipment (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(150) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    equipment_type VARCHAR(100),
     department_id INT NOT NULL,
     FOREIGN KEY (department_id) REFERENCES Departments(id)
 );
 
 
 
-CREATE TABLE Employees (
+
+CREATE TABLE Equipment_Distribution (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    full_name VARCHAR(150) NOT NULL,
-    birth_date DATE,
-    phone VARCHAR(20),
-    position VARCHAR(100),
-    site_id INT,
-    FOREIGN KEY (site_id) REFERENCES Sites(id)
+    equipment_id INT NOT NULL,
+    object_id INT NOT NULL,
+    FOREIGN KEY (equipment_id) REFERENCES Equipment(id),
+    FOREIGN KEY (object_id) REFERENCES Objects(id)
 );
 
 
 
-CREATE TABLE Brigades (
+CREATE TABLE Brigade_Work (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    foreman_id INT,
-    FOREIGN KEY (foreman_id) REFERENCES Employees(id)
+    brigade_id INT NOT NULL,
+    object_id INT NOT NULL,
+    start_date DATE,
+    end_date DATE,
+    FOREIGN KEY (brigade_id) REFERENCES Brigades(id),
+    FOREIGN KEY (object_id) REFERENCES Objects(id)
 );
+
 
