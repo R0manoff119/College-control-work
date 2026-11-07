@@ -1,18 +1,10 @@
-CREATE TABLE Engineers (
+CREATE TABLE Workers (
     id INT AUTO_INCREMENT PRIMARY KEY,
     employee_id INT NOT NULL,
     specialty VARCHAR(100),
-    education VARCHAR(150),
+    qualification VARCHAR(100),
     FOREIGN KEY (employee_id) REFERENCES Employees(id)
 );
-
-
-INSERT INTO Engineers (employee_id, specialty, education)
-VALUES
-(1, 'Инженер-строитель', 'Высшее'),
-(4, 'Прораб', 'Высшее');
-
-
 
 INSERT INTO Workers (employee_id, specialty, qualification)
 VALUES
