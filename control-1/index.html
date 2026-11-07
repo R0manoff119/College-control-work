@@ -1,12 +1,10 @@
-INSERT INTO Employees (full_name, birth_date, phone, position, site_id)
-VALUES
-('Иванов Иван Иванович', '1985-04-12', '89001112233', 'Инженер', 1),
-('Петров Пётр Сергеевич', '1990-07-20', '89002223344', 'Сварщик', 1),
-('Сидоров Алексей Викторович', '1988-02-15', '89003334455', 'Электрик', 2),
-('Смирнов Андрей Олегович', '1980-11-03', '89004445566', 'Прораб', 2),
-('Кузнецов Дмитрий Павлович', '1987-09-25', '89005556677', 'Бетонщик', 3);
-
-SELECT * FROM Employees;
+CREATE TABLE Engineers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_id INT NOT NULL,
+    specialty VARCHAR(100),
+    education VARCHAR(150),
+    FOREIGN KEY (employee_id) REFERENCES Employees(id)
+);
 
 
 INSERT INTO Engineers (employee_id, specialty, education)
