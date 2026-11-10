@@ -1,72 +1,101 @@
-```javascript
-let a = 1;
+let
 
-let b = setInterval(function() {
-    console.log(a);
+2
 
-    if (a == 25) {
-        clearInterval(b);
-        console.log("Готово");
-    }
+any
 
-    a++;
-}, 1000);
+let nameS:
 
-let c = 25;
+pamaTnnt Hnmant,getElementById("name");
 
-let d = setInterval(function() {
-    console.log(c);
+3
 
-    if (c == 1) {
-        clearInterval(d);
-        console.log("Готово");
-    }
+names = nameInput.value;
 
-    c--;
-}, 1000);
+4
 
-let e = 0;
+5
 
-function f() {
-    console.log("Красный");
+let
 
-    setTimeout(function() {
-        console.log("Жёлтый");
+button.addEventListener("click", function(){
 
-        setTimeout(function() {
-            console.log("Зелёный");
+let button = document.getElementById("btn");
 
-            e++;
+6
 
-            if (e < 2) {
-                setTimeout(f, 3000);
-            } else {
-                console.log("Готово");
-            }
+7
 
-        }, 2000);
+if(nameS ===""){
 
-    }, 3000);
-}
+console.log("Введите имя")
 
-f();
+10
 
-let g = 15;
+else{
 
-let h = setInterval(function() {
-    console.log(g);
+console.log("Имя" + names);
 
-    g--;
+11
 
-    if (g < 0) {
-        clearInterval(h);
-        console.log("Время вышло!");
-    }
-}, 1000);
+})
 
-let i = prompt("Через сколько секунд напомнить?");
+12
 
-setTimeout(function() {
-    console.log("Напоминание!");
-}, i * 1000);
-```
+13
+
+const password = "123456";
+
+14
+
+15
+
+16
+
+17
+
+console.log("Пароль слишком короткий")
+
+if(password.length > 6 && password.length <=20){
+
+18
+
+19
+
+else{
+
+20
+
+console.log ("Пароль проходит")
+
+21
+
+22
+
+23
+
+24
+
+let ageInput = document.querySelector("#age"); const age = Number(ageInput.value);
+
+25
+
+26
+
+if(age>=10){
+
+27
+
+console.log("Регистрауия завершина")
+
+28
+
+29
+
+elsef
+
+console. 10 ("Регистрация недоступна"
+
+30
+
+31
