@@ -1,0 +1,89 @@
+-- 12 SQL-запросов для базы Test_db
+-- MySQL 8.0+
+-- Перед запуском выберите базу данных:
+USE Test_db;
+
+-- 1. Выбрать максимальную зарплату за всё время
+SELECT MAX(amount) AS max_salary
+FROM salaries;
+
+-- 2. Выбрать описания всех задач, заменив «Починить» на «Исправить»
+SELECT REPLACE(description, 'Починить', 'Исправить') AS description
+FROM tasks;
+
+-- 3. Выбрать среднюю зарплату за март 2026 года
+SELECT AVG(amount) AS average_salary_march
+FROM salaries
+WHERE paid_at >= '2026-03-01'
+  AND paid_at < '2026-04-01';
+
+-- 4. Выбрать время выплаты максимальной зарплаты за февраль 2026 года
+SELECT paid_at, amount
+FROM salaries
+WHERE paid_at >= '2026-02-01'
+  AND paid_at < '2026-03-01'
+  AND amount = (
+      SELECT MAX(amount)
+      FROM salaries
+      WHERE paid_at >= '2026-02-01'
+        AND paid_at < '2026-03-01'
+  );
+
+-- 5. Найти количество всех выплат с начала января по конец февраля 2026 года
+SELECT COUNT(*) AS payments_count
+FROM salaries
+WHERE paid_at >= '2026-01-01'
+  AND paid_at < '2026-03-01';
+
+-- 6. Выбрать сумму всех зарплат, выплаченных 10 числа любого месяца
+SELECT SUM(amount) AS total_salary_paid_on_tenth
+FROM salaries
+WHERE DAY(paid_at) = 10;
+
+-- 7. Подсчитать количество уникальных тегов, относящихся к задачам
+-- с id 10, 13 и 22
+SELECT COUNT(DISTINCT tag_id) AS tags_count
+FROM tags_tasks
+WHERE task_id IN (10, 13, 22);
+
+-- 8. Подсчитать процент выполненных задач, поставленных в январе 2026 года
+SELECT
+    ROUND(
+        100.0 * SUM(CASE WHEN is_completed = 1 THEN 1 ELSE 0 END) / COUNT(*),
+        2
+    ) AS completed_tasks_percent
+FROM tasks
+WHERE created_at >= '2026-01-01'
+  AND created_at < '2026-02-01';
+
+-- 9. Выбрать 5 зарплат, максимально близких к 330
+SELECT amount
+FROM salaries
+ORDER BY ABS(amount - 330), amount
+LIMIT 5;
+
+-- 10. Выбрать среднее время исполнения задачи за всё время (в минутах)
+SELECT ROUND(AVG(TIMESTAMPDIFF(MINUTE, started_at, completed_at)), 2)
+       AS average_execution_minutes
+FROM tasks
+WHERE started_at IS NOT NULL
+  AND completed_at IS NOT NULL;
+
+-- 11. Дополнительное задание:
+-- Вывести id сотрудника, зарплату и тип выплаты:
+-- «Расчет», если день месяца меньше 10, иначе «Аванс»
+SELECT
+    worker_id,
+    amount,
+    CASE
+        WHEN DAY(paid_at) < 10 THEN 'Расчет'
+        ELSE 'Аванс'
+    END AS payment_type
+FROM salaries;
+
+-- 12. Дополнительное задание:
+-- Вывести короткое имя сотрудника (например, «Збруев Р.»)
+SELECT
+    id AS worker_id,
+    CONCAT(surname, ' ', LEFT(name, 1), '.') AS short_name
+FROM workers;
