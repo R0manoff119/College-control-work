@@ -1,0 +1,68 @@
+USE Test_db;
+
+SELECT MAX(amount)
+FROM salaries;
+
+SELECT REPLACE(description, 'Починить', 'Исправить')
+FROM tasks;
+
+SELECT AVG(amount)
+FROM salaries
+WHERE paid_at >= '2026-03-01'
+AND paid_at < '2026-04-01';
+
+SELECT paid_at
+FROM salaries
+WHERE paid_at >= '2026-02-01'
+AND paid_at < '2026-03-01'
+AND amount = (
+    SELECT MAX(amount)
+    FROM salaries
+    WHERE paid_at >= '2026-02-01'
+    AND paid_at < '2026-03-01'
+);
+
+SELECT COUNT(*)
+FROM salaries
+WHERE paid_at >= '2026-01-01'
+AND paid_at < '2026-03-01';
+
+SELECT SUM(amount)
+FROM salaries
+WHERE DAY(paid_at) = 10;
+
+SELECT COUNT(*)
+FROM tags_tasks
+WHERE task_id IN (10, 13, 22);
+
+SELECT ROUND(
+    100.0 * SUM(CASE WHEN is_completed = 1 THEN 1 ELSE 0 END) / COUNT(*),
+    2
+)
+FROM tasks
+WHERE created_at >= '2026-01-01'
+AND created_at < '2026-02-01';
+
+SELECT amount
+FROM salaries
+ORDER BY ABS(amount - 330)
+LIMIT 5;
+
+SELECT AVG(TIMESTAMPDIFF(MINUTE, started_at, completed_at))
+FROM tasks
+WHERE started_at IS NOT NULL
+AND completed_at IS NOT NULL;
+
+SELECT
+    worker_id,
+    amount,
+    CASE
+        WHEN DAY(paid_at) < 10 THEN 'Расчет'
+        ELSE 'Аванс'
+    END
+FROM salaries;
+
+SELECT
+    id,
+    CONCAT(surname, ' ', LEFT(name, 1), '.')
+FROM workers;
