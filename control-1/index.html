@@ -1,4 +1,31 @@
-<input id="name" placeholder="Имя">
-<input id="email" placeholder="Email">
-<input id="age" placeholder="Возраст">
-<button id="btn">Отправить</button>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление студентами</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Управление студентами</h1>
+
+        <form id="studentForm">
+            <input type="text" id="name" placeholder="Имя" required>
+            <input type="text" id="surname" placeholder="Фамилия" required>
+            <input type="text" id="group" placeholder="Группа" required>
+            <button type="submit" id="saveButton">Добавить студента</button>
+        </form>
+
+        <input type="text" id="search" placeholder="Поиск по имени">
+
+        <h2>Список студентов</h2>
+
+        <div id="studentList"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
