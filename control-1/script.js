@@ -1,35 +1,51 @@
-document.addEventlistener("click", tunction(event)(
+let number = 0;
 
-})
+function changeNumber() {
+    number += 1;
+    document.getElementById("number").innerHTML = "Количество: " + number;
+}
 
-function(event)
+document.onkeydown = function(event) {
+    document.getElementById("keyboard").innerHTML = "Нажата клавиша: " + event.key;
+};
 
-1498
+let player = document.getElementById("player");
+let posX = 0;
+let posY = 0;
 
-1499
+document.onkeydown = function(event) {
+    document.getElementById("keyboard").innerHTML = "Нажата клавиша: " + event.key;
 
-1500 const player - document.getElementById("Splayer");
+    switch (event.key) {
+        case "ArrowUp":
+            posY -= 10;
+            break;
+        case "ArrowDown":
+            posY += 10;
+            break;
+        case "ArrowLeft":
+            posX -= 10;
+            break;
+        case "ArrowRight":
+            posX += 10;
+            break;
+    }
 
-1501
+    posX = Math.max(0, Math.min(posX, 310));
+    posY = Math.max(0, Math.min(posY, 310));
 
-1502 let x= 100;
+    player.style.left = posX + "px";
+    player.style.top = posY + "px";
+};
 
-1503. let y 100;
+function clearAll() {
+    number = 0;
+    posX = 0;
+    posY = 0;
 
-1564
+    document.getElementById("number").innerHTML = "Количество: 0";
+    document.getElementById("keyboard").innerHTML = "Клавиша не нажата";
 
-1505 document.addEventListener("keydown",
-
-1506 if(event.key = "Arrowkight") x + 10;
-
-1507 if(event.koy "Arrowleft") x-= 101
-
-1508 if(event.key "ArrowUp") y-= 10;
-
-1509 if(event.key = "ArrowDown") y + 10;
-
-1510 player.style.left x "px";
-
-1511 player.style.top= y "px";
-
-1512
+    player.style.left = "0px";
+    player.style.top = "0px";
+}
