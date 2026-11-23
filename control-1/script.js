@@ -1,90 +1,35 @@
+document.addEventlistener("click", tunction(event)(
 
-let students = JSON.parse(localStorage.getItem("students")) || [];
+})
 
-let studentForm = document.getElementById("studentForm");
-let studentList = document.getElementById("studentList");
-let search = document.getElementById("search");
+function(event)
 
-let editIndex = -1;
+1498
 
-function saveStudents() {
-    localStorage.setItem("students", JSON.stringify(students));
-}
+1499
 
-function showStudents() {
-    studentList.innerHTML = "";
+1500 const player - document.getElementById("Splayer");
 
-    let searchText = search.value.toLowerCase();
+1501
 
-    students.forEach((student, index) => {
-        if (
-            student.name.toLowerCase().includes(searchText)
-        ) {
-            let studentDiv = document.createElement("div");
-            studentDiv.className = "student";
+1502 let x= 100;
 
-            studentDiv.innerHTML = `
-                <div>
-                    <strong>${student.name} ${student.surname}</strong>
-                    <p>Группа: ${student.group}</p>
-                </div>
+1503. let y 100;
 
-                <div class="actions">
-                    <button class="edit" onclick="editStudent(${index})">Изменить</button>
-                    <button class="delete" onclick="deleteStudent(${index})">Удалить</button>
-                </div>
-            `;
+1564
 
-            studentList.appendChild(studentDiv);
-        }
-    });
-}
+1505 document.addEventListener("keydown",
 
-studentForm.addEventListener("submit", function(event) {
-    event.preventDefault();
+1506 if(event.key = "Arrowkight") x + 10;
 
-    let name = document.getElementById("name").value;
-    let surname = document.getElementById("surname").value;
-    let group = document.getElementById("group").value;
+1507 if(event.koy "Arrowleft") x-= 101
 
-    let student = {
-        name: name,
-        surname: surname,
-        group: group
-    };
+1508 if(event.key "ArrowUp") y-= 10;
 
-    if (editIndex === -1) {
-        students.push(student);
-    } else {
-        students[editIndex] = student;
-        editIndex = -1;
-        document.getElementById("saveButton").textContent = "Добавить студента";
-    }
+1509 if(event.key = "ArrowDown") y + 10;
 
-    saveStudents();
-    showStudents();
-    studentForm.reset();
-});
+1510 player.style.left x "px";
 
-function editStudent(index) {
-    let student = students[index];
+1511 player.style.top= y "px";
 
-    document.getElementById("name").value = student.name;
-    document.getElementById("surname").value = student.surname;
-    document.getElementById("group").value = student.group;
-
-    editIndex = index;
-
-    document.getElementById("saveButton").textContent = "Сохранить изменения";
-}
-
-function deleteStudent(index) {
-    students.splice(index, 1);
-
-    saveStudents();
-    showStudents();
-}
-
-search.addEventListener("input", showStudents);
-
-showStudents();
+1512
