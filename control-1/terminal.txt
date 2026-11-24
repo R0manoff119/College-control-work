@@ -1,142 +1,25 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Приложение на JavaScript</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<input id="city" placeholder="Введите город">
+<button onclick="addCity()">Добавить</button>
 
-    <h1>Моё приложение</h1>
-
-    <h2>1. Счётчик</h2>
-    <p id="counter">0</p>
-    <button onclick="addCounter()">Увеличить</button>
-
-    <h2>2. Изменение цвета</h2>
-    <div id="colorBlock"></div>
-
-    <h2>3. Нажатая клавиша</h2>
-    <p id="key">Нажмите любую клавишу</p>
-
-    <h2>4. Игровое поле</h2>
-    <div id="game">
-        <div id="square"></div>
-    </div>
-
-    <h2>5. Сброс</h2>
-    <button onclick="reset()">Сбросить результаты</button>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<p id="error"></p>
+<ul id="list"></ul>
 
 
+let cities = [];
 
-body {
-    font-family: Arial;
-    text-align: center;
+function addCity() {
+    let city = document.getElementById("city").value;
+
+    if (cities.includes(city)) {
+        document.getElementById("error").innerHTML = "Город уже есть!";
+    } else {
+        cities.push(city);
+        document.getElementById("error").innerHTML = "";
+    }
+
+    document.getElementById("list").innerHTML = "";
+
+    for (let i = 0; i < cities.length; i++) {
+        document.getElementById("list").innerHTML += "<li>" + cities[i] + "</li>";
+    }
 }
-
-#colorBlock {
-    width: 150px;
-    height: 100px;
-    background-color: blue;
-    margin: auto;
-}
-
-#colorBlock:hover {
-    background-color: red;
-}
-
-#game {
-    width: 300px;
-    height: 300px;
-    border: 2px solid black;
-    margin: auto;
-    position: relative;
-}
-
-#square {
-    width: 30px;
-    height: 30px;
-    background-color: green;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-
-
-
-
-let counter = 0;
-
-function addCounter() {
-    counter++;
-    document.getElementById("counter").innerHTML = counter;
-}
-
-// Определение клавиши
-document.addEventListener("keydown", function(event) {
-    document.getElementById("key").innerHTML = event.key;
-});
-
-// Перемещение квадрата
-let square = document.getElementById("square");
-
-let x = 0;
-let y = 0;
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key == "ArrowUp") {
-        y = y - 10;
-    }
-
-    if (event.key == "ArrowDown") {
-        y = y + 10;
-    }
-
-    if (event.key == "ArrowLeft") {
-        x = x - 10;
-    }
-
-    if (event.key == "ArrowRight") {
-        x = x + 10;
-    }
-
-    if (x < 0) {
-        x = 0;
-    }
-
-    if (y < 0) {
-        y = 0;
-    }
-
-    if (x > 270) {
-        x = 270;
-    }
-
-    if (y > 270) {
-        y = 270;
-    }
-
-    square.style.left = x + "px";
-    square.style.top = y + "px";
-});
-
-// Сброс результатов
-function reset() {
-    counter = 0;
-    x = 0;
-    y = 0;
-
-    document.getElementById("counter").innerHTML = 0;
-    document.getElementById("key").innerHTML = "Нажмите любую клавишу";
-
-    square.style.left = "0px";
-    square.style.top = "0px";
-}
-
-
