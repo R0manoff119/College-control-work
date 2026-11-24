@@ -1,17 +1,19 @@
-<input id="city" placeholder="Введите город">
+<input id="city">
 <button onclick="addCity()">Добавить</button>
 
 <p id="error"></p>
-<ul id="list"></ul>
-
+<ul id="list"></ul> 
 
 let cities = [];
 
 function addCity() {
     let city = document.getElementById("city").value;
+    let lastCity = cities[cities.length - 1];
 
     if (cities.includes(city)) {
-        document.getElementById("error").innerHTML = "Город уже есть!";
+        document.getElementById("error").innerHTML = "Такой город уже есть";
+    } else if (cities.length > 0 && city[0] != lastCity[lastCity.length - 1]) {
+        document.getElementById("error").innerHTML = "Неправильная буква";
     } else {
         cities.push(city);
         document.getElementById("error").innerHTML = "";
