@@ -1,11 +1,29 @@
-SELECT
-`products`.`arcticle`, `products`.`name`, `products`.`unit`,
-`products`.`price`, `products`.`discount`, `products`.`amount`,
-`products`.`description`, `products`.`photo`,
-`categories`.`name` AS 'category',
-`producers`.`name` AS 'producer',
-`providers`.`name` AS 'provider'
-FROM `products`
-JOIN `categories` ON `products`.`id_category` = `categories`.`id`
-JOIN `producers` ON `products`.`id_producer` = `producers`.`id`
-JOIN `providers` ON `products`.`id_provider` = `providers`.`id`
+-- Вывести описание задач и имя сотрудника, который ее выполняет
+SELECT `tasks`.`description`, `workers`.`name` FROM `tasks`
+JOIN `workers` ON `tasks`.`worker_id` = `workers`.`id`;
+
+
+
+SELECT `workers`.`name` AS 'работник', `departments`.`name` AS 'отдел'
+FROM `workers` JOIN `departments` ON `workers`.`department_id` = `departments`.`id`;
+
+
+
+SELECT `tags`.`name`
+FROM `tags_tasks`
+JOIN `tasks` ON `tags_tasks`.`task_id` = `tasks`.`id`
+JOIN `tags` ON `tags_tasks`.`tag_id` = `tags`.`id`
+WHERE `tags_tasks`.`task_id` = 9;
+
+
+
+
+-- Вывести список имен сотрудников, которые получали выплаты от 500
+SELECT `workers`.`name` FROM `workers`
+JOIN `salaries` ON `salaries`.`worker_id` = `workers`.`id`
+WHERE `salaries`.`salary` > 500
+
+
+
+
+
