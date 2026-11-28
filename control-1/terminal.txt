@@ -36,6 +36,21 @@ ADD COLUMN `worker_id` INT;
 ALTER TABLE `demo_db`.`tasks` ADD COLUMN `worker_id` INT;
 
 
+
+
+
+-- 1. Создаем таблицу workers
+CREATE TABLE `demo_db`.`workers` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(255) NOT NULL
+);
+
+-- 2. Добавляем тестового сотрудника (с id = 1)
+INSERT INTO `demo_db`.`workers` (`name`) VALUES ('Иван Иванов');
+
+
+
+
 -- Вывести описание задач и имя сотрудника, который ее выполняет
 SELECT `tasks`.`description`, `workers`.`name` FROM `tasks`
 JOIN `workers` ON `tasks`.`worker_id` = `workers`.`id`;
