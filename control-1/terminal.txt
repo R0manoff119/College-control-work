@@ -33,6 +33,8 @@ ADD COLUMN `worker_id` INT;
 
 
 
+ALTER TABLE `demo_db`.`tasks` ADD COLUMN `worker_id` INT;
+
 
 -- Вывести описание задач и имя сотрудника, который ее выполняет
 SELECT `tasks`.`description`, `workers`.`name` FROM `tasks`
