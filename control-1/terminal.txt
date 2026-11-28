@@ -141,3 +141,31 @@ INSERT INTO `demo_db`.`tags` (`name`) VALUES ('Срочно');
 INSERT INTO `demo_db`.`tasks` (`id`, `title`) VALUES (9, 'Тестовая задача') ON DUPLICATE KEY UPDATE `title` = 'Тестовая задача';
 INSERT INTO `demo_db`.`tags_tasks` (`task_id`, `tag_id`) VALUES (9, 1);
 
+
+
+
+
+
+
+
+
+
+
+
+
+-- 1. Создаем таблицу salaries (выплаты/зарплаты)
+CREATE TABLE `demo_db`.`salaries` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `worker_id` INT NOT NULL,
+    `salary` INT NOT NULL
+);
+
+-- 2. Добавляем тестовую выплату для сотрудника с id = 1
+INSERT INTO `demo_db`.`salaries` (`worker_id`, `salary`) VALUES (1, 1000);
+
+
+
+SELECT `workers`.`name` FROM `workers`
+JOIN `salaries` ON `salaries`.`worker_id` = `workers`.`id`
+WHERE `salaries`.`salary` > 500
+
