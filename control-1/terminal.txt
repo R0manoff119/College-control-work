@@ -110,3 +110,34 @@ FROM `workers` JOIN `departments` ON `workers`.`department_id` = `departments`.`
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- 1. Создаем таблицу tags (теги)
+CREATE TABLE `demo_db`.`tags` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(255) NOT NULL
+);
+
+-- 2. Создаем связующую таблицу tags_tasks
+CREATE TABLE `demo_db`.`tags_tasks` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `task_id` INT NOT NULL,
+    `tag_id` INT NOT NULL
+);
+
+-- 3. Добавляем тестовые данные (чтобы запрос вернул результат для task_id = 9)
+INSERT INTO `demo_db`.`tags` (`name`) VALUES ('Срочно');
+INSERT INTO `demo_db`.`tasks` (`id`, `title`) VALUES (9, 'Тестовая задача') ON DUPLICATE KEY UPDATE `title` = 'Тестовая задача';
+INSERT INTO `demo_db`.`tags_tasks` (`task_id`, `tag_id`) VALUES (9, 1);
+
