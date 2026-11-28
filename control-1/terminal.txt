@@ -80,3 +80,33 @@ WHERE `salaries`.`salary` > 500
 
 
 
+
+
+
+
+
+
+
+
+-- 1. Создаем таблицу departments (отделы)
+CREATE TABLE `demo_db`.`departments` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(255) NOT NULL
+);
+
+-- 2. Добавляем тестовый отдел (с id = 1)
+INSERT INTO `demo_db`.`departments` (`name`) VALUES ('IT-отдел');
+
+-- 3. Добавляем в таблицу workers столбец department_id
+ALTER TABLE `demo_db`.`workers` ADD COLUMN `department_id` INT;
+
+-- 4. Привязываем существующего сотрудника к отделу с id = 1
+UPDATE `demo_db`.`workers` SET `department_id` = 1 WHERE `id` = 1;
+
+
+
+SELECT `workers`.`name` AS 'работник', `departments`.`name` AS 'отдел'
+FROM `workers` JOIN `departments` ON `workers`.`department_id` = `departments`.`id`
+
+
+
