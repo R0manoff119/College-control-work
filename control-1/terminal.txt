@@ -1,16 +1,11 @@
-SELECT 
-    p.`article`, 
-    p.`name`, 
-    p.`unit`, 
-    p.`price`, 
-    p.`discount`, 
-    p.`amount`, 
-    p.`description`, 
-    p.`photo`,
-    c.`name` AS `category`,
-    pr.`name` AS `producer`,
-    pv.`name` AS `provider`
-FROM `products` p
-LEFT JOIN `categories` c ON p.`id_category` = c.`id`
-LEFT JOIN `producers` pr ON p.`id_producer` = pr.`id`
-LEFT JOIN `providers` pv ON p.`id_provider` = pv.`id`;
+SELECT
+`products`.`arcticle`, `products`.`name`, `products`.`unit`,
+`products`.`price`, `products`.`discount`, `products`.`amount`,
+`products`.`description`, `products`.`photo`,
+`categories`.`name` AS 'category',
+`producers`.`name` AS 'producer',
+`providers`.`name` AS 'provider'
+FROM `products`
+JOIN `categories` ON `products`.`id_category` = `categories`.`id`
+JOIN `producers` ON `products`.`id_producer` = `producers`.`id`
+JOIN `providers` ON `products`.`id_provider` = `providers`.`id`
