@@ -22,6 +22,11 @@ CREATE TABLE `demo_db`.`tasks` (
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+ALTER TABLE `demo_db`.`tasks`
+ADD COLUMN `worker_id` INT,
+ADD FOREIGN KEY (`worker_id`) REFERENCES `workers`(`id`) ON DELETE SET NULL;
+
+
 
 
 -- Вывести описание задач и имя сотрудника, который ее выполняет
