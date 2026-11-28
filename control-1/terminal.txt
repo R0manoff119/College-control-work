@@ -1,1 +1,16 @@
-SELECT users. name, users. surname, roles.'name FROM users pOIN roles ON users.`id_role = roles. id;
+SELECT 
+    p.`article`, 
+    p.`name`, 
+    p.`unit`, 
+    p.`price`, 
+    p.`discount`, 
+    p.`amount`, 
+    p.`description`, 
+    p.`photo`,
+    c.`name` AS `category`,
+    pr.`name` AS `producer`,
+    pv.`name` AS `provider`
+FROM `products` p
+LEFT JOIN `categories` c ON p.`id_category` = c.`id`
+LEFT JOIN `producers` pr ON p.`id_producer` = pr.`id`
+LEFT JOIN `providers` pv ON p.`id_provider` = pv.`id`;
